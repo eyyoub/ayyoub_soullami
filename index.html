@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Creative Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #3a86ff;
+            --accent-color: #ff006e;
+            --dark-color: #14213d;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            animation: float 5s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .title-list {
+            margin: 1rem 0 2rem;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .title-list li {
+            background-color: rgba(255,255,255,0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .title-list li:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .project-img {
+            height: 200px;
+            width: 100%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            margin-top: 0;
+            color: var(--dark-color);
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .skill {
+            background-color: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-icon {
+            color: var(--primary-color);
+        }
+        
+        .animated-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            padding: 2rem;
+            border-radius: 10px;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="particles">
+            <!-- Generated particles -->
+            <div class="particle" style="width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 15px; height: 15px; top: 30%; left: 20%; animation-delay: 0.5s;"></div>
+            <div class="particle" style="width: 8px; height: 8px; top: 50%; left: 30%; animation-delay: 1s;"></div>
+            <div class="particle" style="width: 12px; height: 12px; top: 70%; left: 15%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="width: 6px; height: 6px; top: 40%; left: 60%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 18px; height: 18px; top: 60%; left: 70%; animation-delay: 2.5s;"></div>
+            <div class="particle" style="width: 10px; height: 10px; top: 25%; left: 80%; animation-delay: 3s;"></div>
+            <div class="particle" style="width: 14px; height: 14px; top: 75%; left: 85%; animation-delay: 3.5s;"></div>
+            <div class="particle" style="width: 9px; height: 9px; top: 35%; left: 40%; animation-delay: 4s;"></div>
+        </div>
+        <div class="header-content">
+            <h1>Eyyoub</h1>
+            <ul class="title-list">
+                <li>Creative Director</li>
+                <li>Web Developer</li>
+                <li>Digital Artist</li>
+                <li>Problem Solver</li>
+            </ul>
+            <p>Turning ideas into digital experiences</p>
+        </div>
+    </header>
+    
+    <main>
+        <div class="animated-bg">
+            <h2 style="color: white; border-bottom-color: rgba(255,255,255,0.3);">Welcome to my creative universe</h2>
+            <p>I believe in the power of design and technology to transform how we experience the world. Every project is an opportunity to create something meaningful, innovative, and beautiful.</p>
+        </div>
+        
+        <section class="section">
+            <h2>Featured Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/200" alt="Project visualization">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Immersive Gallery Experience</h3>
+                        <p>A virtual art gallery that brings masterpieces to life through interactive storytelling and spatial audio.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/200" alt="Project visualization">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sustainable Design System</h3>
+                        <p>A comprehensive design system focused on accessibility and environmental impact for mission-driven organizations.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/200" alt="Project visualization">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Interactive Data Visualization</h3>
+                        <p>Transforming complex datasets into intuitive, engaging visual stories that reveal unexpected patterns.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Creative Philosophy</h2>
+            <div class="quote">
+                "The details are not the details. They make the design." — Charles Eames
+            </div>
+            <p>I approach each project with curiosity, empathy, and a commitment to craftsmanship. By balancing form and function, intuition and analysis, tradition and innovation, I create work that resonates on multiple levels.</p>
+            <p>My creative process involves deep collaboration, iterative exploration, and a willingness to challenge assumptions. I believe the best solutions emerge when we combine diverse perspectives and remain open to unexpected possibilities.</p>
+        </section>
+        
+        <section class="section">
+            <h2>Skills & Expertise</h2>
+            <div class="skills">
+                <div class="skill">
+                    <span class="skill-icon">◆</span>
+                    <span>Visual Design</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-icon">◆</span>
+                    <span>Frontend Development</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-icon">◆</span>
+                    <span>UX Research</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-icon">◆</span>
+                    <span>Digital Illustration</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-icon">◆</span>
+                    <span>Animation</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-icon">◆</span>
+                    <span>Creative Direction</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-icon">◆</span>
+                    <span>Information Architecture</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-icon">◆</span>
+                    <span>3D Modeling</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="social-links">
+            <a href="#" class="social-link">in</a>
+            <a href="#" class="social-link">tw</a>
+            <a href="#" class="social-link">ig</a>
+            <a href="#" class="social-link">be</a>
+        </div>
+        <p>© 2025 Eyyoub. All rights reserved.</p>
+        <p>Made with creativity and code in [Your Location]</p>
+    </footer>
+    
+    <script>
+        // Add more particles dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.querySelector('.particles');
+            const numParticles = 20;
+            
+            for(let i = 0; i < numParticles; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 12 + 4;
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.top = `${top}%`;
+                particle.style.left = `${left}%`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>
