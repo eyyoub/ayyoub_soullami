@@ -213,6 +213,37 @@
             background-color: var(--accent-color);
             transform: translateY(-5px);
         }
+        .testimonials {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-color);
+            border-left: 5px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .testimonial-card h4 {
+            margin-top: 1rem;
+            color: var(--dark-color);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -325,6 +356,25 @@
                 <div class="skill">
                     <span class="skill-icon">◆</span>
                     <span>3D Modeling</span>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Testimonials</h2>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <p>"Working with Eyyoub was a game-changer for our project. The design and functionality exceeded our expectations!"</p>
+                    <h4>- Alex Johnson, Tech Solutions Inc.</h4>
+                </div>
+        
+                <div class="testimonial-card">
+                    <p>"Incredible attention to detail and creativity. The final product was both beautiful and highly functional."</p>
+                    <h4>- Maria Lopez, Green Earth Foundation</h4>
+                </div>
+        
+                <div class="testimonial-card">
+                    <p>"A perfect balance of aesthetics and usability. Eyyoub's work truly stands out in the digital space."</p>
+                    <h4>- James Carter, Urban Canvas Studio</h4>
                 </div>
             </div>
         </section>
